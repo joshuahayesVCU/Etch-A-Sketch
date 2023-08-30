@@ -1,13 +1,65 @@
 .body {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    border: 70px;
 }
+
+.game-container {
+    display: flex;
+    flex: 2;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    border: 1px solid blue;
+}
+
+.config {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    border: 1px solid green;
+}
+
+.etch-a-sketch-container {
+    display: flex;
+    flex: 2;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.etch-a-sketch {
+    display: flex;
+    flex-wrap: wrap;
+    height: 800px;
+    width: 800px;
+    justify-content: center;
+    border: 1px solid blue;
+
+}
+
+.sketch-item{
+    /* Styling for flex items */
+    height: 50px;
+    width: 50px;
+    border: 1px solid black; /* Add a border to the items */
+    box-sizing: border-box; /* Include borders in width calculation */
+}
+
