@@ -1,9 +1,9 @@
-var newDiv = document.createElement("div");
 
 var container = document.querySelector(".etch-a-sketch");
 
-const GRID_SIZE = 16.0;
-const CANVAS_SIZE = 800.0;
+const GRID_SIZE = 16;
+var canvasSize = container.offsetHeight;
+console.log(canvasSize);
 
 for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
     var newDiv = document.createElement("div");
@@ -12,21 +12,37 @@ for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
     newDiv.id = i;
     newDiv.style.backgroundColor = "white";
 
-    newDiv.style.height = CANVAS_SIZE / GRID_SIZE
-    newDiv.style.width = CANVAS_SIZE / GRID_SIZE
+    var itemSize = canvasSize / GRID_SIZE;
+
+    newDiv.style.width = `${itemSize}px`;
+    newDiv.style.height = `${itemSize}px`;
+
 
     container.appendChild(newDiv);
 }
 
-document.body.addEventListener('mouseover', function(event) {
-    if (event.target.classList.contains('sketch-item')) {
+// var sketchItem = document.querySelectorAll(".sketch-item");
+
+// console.log(itemSize);
+// sketchItem.style.width = "100px"
+
+document.querySelector(".etch-a-sketch").addEventListener('mousedown', function(event) {
+
+    const currentDiv = document.getElementById(event.target.id);
+
+    if (currentDiv.style.backgroundColor !== "black" ) {
+        currentDiv.style.backgroundColor = "black";
+    }
+
+    document.querySelector(".etch-a-sketch").addEventListener('mouseover', function(event) {
         const currentDiv = document.getElementById(event.target.id);
 
-        if (currentDiv.style.backgroundColor !== "black") {
+        if (currentDiv.style.backgroundColor !== "black" ) {
             currentDiv.style.backgroundColor = "black";
         }
-    }
+    });
 });
+
 
 
 

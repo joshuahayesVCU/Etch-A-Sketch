@@ -48,17 +48,15 @@
 .etch-a-sketch {
     display: flex;
     flex-wrap: wrap;
-    height: 800px;
-    width: 800px;
+    height: 750px;
+    width: 750px;
     justify-content: center;
-    border: 1px solid blue;
 
 }
 
 .sketch-item{
-    /* Styling for flex items */
-    height: 50px;
-    width: 50px;
+    /* height: 40px;
+    width: 40px; */
     border: 1px solid black; /* Add a border to the items */
     box-sizing: border-box; /* Include borders in width calculation */
 }
