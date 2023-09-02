@@ -1,32 +1,54 @@
 
-var container = document.querySelector(".etch-a-sketch");
+// Global variable decleration
+var canvasSize = 16;
+paintingEnabled = false;
 
-const GRID_SIZE = 16;
-var canvasSize = container.offsetHeight;
-console.log(canvasSize);
+function createCanvas(gridSize) {
+    var container = document.querySelector(".etch-a-sketch");
 
-for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
-    var newDiv = document.createElement("div");
+    paintingEnabled = false;
+    container.innerHTML = "";
 
-    newDiv.className = "sketch-item";
-    newDiv.id = i;
-    newDiv.style.backgroundColor = "white";
+    var canvasSize = container.offsetHeight;
+    console.log(canvasSize);
 
-    var itemSize = canvasSize / GRID_SIZE;
+    for (let i = 0; i < gridSize * gridSize; i++) {
+        var newDiv = document.createElement("div");
 
-    newDiv.style.width = `${itemSize}px`;
-    newDiv.style.height = `${itemSize}px`;
+        newDiv.className = "sketch-item";
+        newDiv.id = i;
+        newDiv.style.backgroundColor = "white";
+
+        var itemSize = canvasSize / gridSize;
+
+        newDiv.style.width = `${itemSize}px`;
+        newDiv.style.height = `${itemSize}px`;
 
 
-    container.appendChild(newDiv);
+        container.appendChild(newDiv);
+    }
 }
 
-// var sketchItem = document.querySelectorAll(".sketch-item");
+function clearCanvas() {
+    var container = document.querySelector(".etch-a-sketch");
 
-// console.log(itemSize);
-// sketchItem.style.width = "100px"
+    createCanvas(canvasSize);
+
+}
+
+function newGrid() {
+    canvasSize = prompt("Please enter a number");
+
+    while (canvasSize > 100 || canvasSize <= 0) {
+        canvasSize = prompt("ERROR: please enter an integer between 1 and 100");
+    }
+
+    clearCanvas();
+    createCanvas(canvasSize);
+}
 
 document.querySelector(".etch-a-sketch").addEventListener('mousedown', function(event) {
+    paintingEnabled = true;
 
     const currentDiv = document.getElementById(event.target.id);
 
@@ -37,14 +59,17 @@ document.querySelector(".etch-a-sketch").addEventListener('mousedown', function(
     document.querySelector(".etch-a-sketch").addEventListener('mouseover', function(event) {
         const currentDiv = document.getElementById(event.target.id);
 
-        if (currentDiv.style.backgroundColor !== "black" ) {
+        if (currentDiv.style.backgroundColor !== "black" && paintingEnabled) {
             currentDiv.style.backgroundColor = "black";
         }
     });
 });
 
+document.querySelector(".etch-a-sketch").addEventListener('mouseup', function(event) {
+    paintingEnabled = false;
+
+});
 
 
-
-
-
+// creating our first default canvas
+createCanvas(canvasSize);

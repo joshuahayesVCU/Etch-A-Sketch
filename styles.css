@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     justify-content: space-around;
-    border: 1px solid blue;
+    border: 1px solid black;
 }
 
 .config {
@@ -31,8 +31,8 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    justify-content: space-around;
-    border: 1px solid green;
+    justify-content: space-evenly;
+    border: 1px solid black;
 }
 
 .etch-a-sketch-container {
